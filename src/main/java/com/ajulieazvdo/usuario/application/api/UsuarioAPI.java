@@ -10,4 +10,8 @@ public interface UsuarioAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     UsuarioResponse criarUsuario(@RequestBody @Valid UsuarioRequest usuarioRequest);
+
+    @PatchMapping("/{idUsuario}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void editarUsuario(@PathVariable String idUsuario, @RequestBody @Valid UsuarioEditaRequest usuarioRequest);
 }

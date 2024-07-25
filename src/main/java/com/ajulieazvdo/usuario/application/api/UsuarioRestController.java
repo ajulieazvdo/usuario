@@ -17,4 +17,11 @@ public class UsuarioRestController implements UsuarioAPI {
         log.info("[finaliza] UsuarioRestController - criarUsuario");
         return usuario;
     }
+
+    @Override
+    public void editarUsuario(String idUsuario, UsuarioEditaRequest usuarioRequest) {
+        log.info("[inicia] UsuarioRestController - editaUsuario");
+        usuarioService.editarUsuario(idUsuario, usuarioRequest);
+        log.info("[finaliza] UsuarioRestController - editaUsuario");
+    }
 }

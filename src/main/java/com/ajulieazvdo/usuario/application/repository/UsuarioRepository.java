@@ -4,4 +4,6 @@ import com.ajulieazvdo.usuario.domain.Usuario;
 
 public interface UsuarioRepository {
     Usuario salvarUsuario(Usuario usuario);
+
+    Usuario buscarUsuarioPorId(String idUsuario);
 }

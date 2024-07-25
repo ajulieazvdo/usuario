@@ -1,5 +1,6 @@
 package com.ajulieazvdo.usuario.domain;
 
+import com.ajulieazvdo.usuario.application.api.UsuarioEditaRequest;
 import com.ajulieazvdo.usuario.application.api.UsuarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -28,5 +29,9 @@ public class Usuario {
         this.nome = usuarioRequest.nome();
         this.email = usuarioRequest.email();
         this.senha = usuarioRequest.senha();
+    }
+
+    public void edita(UsuarioEditaRequest usuarioRequest) {
+        this.nome = usuarioRequest.nome();
     }
 }
