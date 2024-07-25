@@ -1,5 +1,6 @@
 package com.ajulieazvdo.usuario.application.service;
 
+import com.ajulieazvdo.usuario.application.api.UsuarioEditaRequest;
 import com.ajulieazvdo.usuario.application.api.UsuarioRequest;
 import com.ajulieazvdo.usuario.application.api.UsuarioResponse;
 import com.ajulieazvdo.usuario.application.repository.UsuarioRepository;
@@ -19,5 +20,14 @@ public class UsuarioApplicationService implements UsuarioService {
         Usuario usuario = usuarioRepository.salvarUsuario(new Usuario(usuarioRequest));
         log.info("[finaliza] UsuarioApplicationService - salvarUsuario");
         return new UsuarioResponse(usuario);
+    }
+
+    @Override
+    public void editarUsuario(String idUsuario, UsuarioEditaRequest usuarioRequest) {
+        log.info("[inicia] UsuarioApplicationService - editarUsuario");
+        Usuario usuario = usuarioRepository.buscarUsuarioPorId(idUsuario);
+        usuario.edita(usuarioRequest);
+        usuarioRepository.salvarUsuario(usuario);
+        log.info("[finaliza] UsuarioApplicationService - editarUsuario");
     }
 }
