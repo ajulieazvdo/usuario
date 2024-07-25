@@ -3,15 +3,13 @@ package com.ajulieazvdo.usuario.domain;
 import com.ajulieazvdo.usuario.application.api.UsuarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
+@Builder
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
